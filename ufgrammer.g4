@@ -14,7 +14,7 @@ netlist
     ;
 
 header  
-    :   (tag='3D')? 'DEVICE' name=ID  
+    :   (tag='3D')? 'DEVICE' ufname  
     ;
 
 flowBlock 	
@@ -62,71 +62,81 @@ controlStat
 //Flow Statements
 
 portStat
-    :   'PORT' name=ID (',' name=ID )*('r''='r=INT)';'
+    :   'PORT' ufnames ('r''='r=INT)';'
     ;
+
+
+    
 portBankStat
-    :   o='V' 'BANK' name=ID 'of' n=INT 'PORT'  'r''='r=INT 'dir''='dir=('RIGHT'|'LEFT') 'spacing''='spacing=INT 'channelWidth''='fw=INT ';'
+    :   o='V' 'BANK' ufname 'of' n=INT 'PORT'  'r''='r=INT 'dir''='dir=('RIGHT'|'LEFT') 'spacing''='spacing=INT 'channelWidth''='fw=INT ';'
     ;
 channelStat
-    :   'CHANNEL' name=ID 'from' component1=ID port1=INT 'to' component2=ID port2=INT 'w''='w=INT';'
+    :   'CHANNEL' ufname 'from' component1=ID port1=INT 'to' component2=ID port2=INT 'w''='w=INT';'
     ;
 nodeStat
-    :   'NODE' name=ID (',' name=ID )*';'
+    :   'NODE' ufnames ';'
     ;
 cellTrapStat
-    :   'SQUARE CELL TRAP' name=ID (',' name=ID )* 'chamberWidth''='i2=INT 'chamberLength''='i1=INT 'channelWidth''='i0=INT';'
-    |   orientation=('V'|'H') 'LONG CELL TRAP' name=ID (',' name=ID )*  'numChambers''='i4=INT 'chamberWidth''='i2=INT 'chamberLength''='i1=INT  'chamberSpacing''='i3=INT 'channelWidth''='i0=INT';'
+    :   'SQUARE CELL TRAP' ufnames 'chamberWidth''='i2=INT 'chamberLength''='i1=INT 'channelWidth''='i0=INT';'
+    |   orientation=('V'|'H') 'LONG CELL TRAP' ufnames  'numChambers''='i4=INT 'chamberWidth''='i2=INT 'chamberLength''='i1=INT  'chamberSpacing''='i3=INT 'channelWidth''='i0=INT';'
     ;
 cellTrapBankStat
-    :   o=('V'|'H') 'BANK' name=ID 'of' n=INT 'CELL TRAP'  'numChambers''='i4=INT 'chamberWidth''='i2=INT 'chamberLength''='i1=INT  'chamberSpacing''='i3=INT 'spacing''='spacing=INT 'channelWidth''='i0=INT';'
+    :   o=('V'|'H') 'BANK' ufname 'of' n=INT 'CELL TRAP'  'numChambers''='i4=INT 'chamberWidth''='i2=INT 'chamberLength''='i1=INT  'chamberSpacing''='i3=INT 'spacing''='spacing=INT 'channelWidth''='i0=INT';'
     ;
 logicArrayStat
-    :   'LOGIC ARRAY' name=ID 'flowChannelWidth''=' cw1=INT 'controlChannelWidth''=' cw2=INT 'chamberLength''='i1=INT 'chamberWidth''='i2=INT 'r''='i3=INT ';'
+    :   'LOGIC ARRAY' ufname 'flowChannelWidth''=' cw1=INT 'controlChannelWidth''=' cw2=INT 'chamberLength''='i1=INT 'chamberWidth''='i2=INT 'r''='i3=INT ';'
     ;
 muxStat
-    :   orientation=('V'|'H') 'MIXER' name=ID 'numBends''=' n=INT 'bendSpacing''=' bd=INT 'bendLength''=' bl=INT 'channelWidth''=' cw=INT ';'
+    :   orientation=('V'|'H') 'MIXER' ufname 'numBends''=' n=INT 'bendSpacing''=' bd=INT 'bendLength''=' bl=INT 'channelWidth''=' cw=INT ';'
     ;
 treeStat
-    :   orientation=('V'|'H') 'TREE' name=ID n1=INT 'to' n2=INT 'spacing''='spacing=INT 'flowChannelWidth''=' cw1=INT ';'
+    :   orientation=('V'|'H') 'TREE' ufname n1=INT 'to' n2=INT 'spacing''='spacing=INT 'flowChannelWidth''=' cw1=INT ';'
     ;
 setCoordStat
-    :   name=ID ('SET X' x=INT) ('SET Y' y=INT) ';'
+    :   ufname ('SET X' x=INT) ('SET Y' y=INT) ';'
     ;
 mixerStat
-    :   orientation=('V'|'H') 'MIXER' name=ID 'numBends''=' n=INT 'bendSpacing=' bd=INT 'bendLength''=' bl=INT 'channelWidth''=' cw=INT ';'
+    :   orientation=('V'|'H') 'MIXER' ufname 'numBends''=' n=INT 'bendSpacing=' bd=INT 'bendLength''=' bl=INT 'channelWidth''=' cw=INT ';'
     ;
 gradGenStat
-    :   orientation=('V'|'H') 'GRADIENT GENERATOR' name=ID in=INT 'to' out=INT 'numBends''=' n=INT 'bendSpacing''=' bd=INT 'bendLength''=' bl=INT 'channelWidth''=' cw=INT ';'
+    :   orientation=('V'|'H') 'GRADIENT GENERATOR' ufname in=INT 'to' out=INT 'numBends''=' n=INT 'bendSpacing''=' bd=INT 'bendLength''=' bl=INT 'channelWidth''=' cw=INT ';'
     ;
 rotaryStat
-    :   orientation=('V'|'H') 'ROTARY PUMP' name=ID 'radius''=' r=INT 'flowChannelWidth''=' fw=INT 'controlChannelWidth''=' cw=INT ';'
+    :   orientation=('V'|'H') 'ROTARY PUMP' ufname 'radius''=' r=INT 'flowChannelWidth''=' fw=INT 'controlChannelWidth''=' cw=INT ';'
     ;
 dropletGenStat
-    :   orientation=('V'|'H') 'DROPLET GENERATOR' 'T' name=ID 'radius''=' r=INT 'oilChannelWidth''=' cw1=INT 'waterChannelWidth''=' cw2=INT ';'
-    |   orientation=('V'|'H') 'DROPLET GENERATOR' 'FLOW FOCUS' name=ID 'radius''=' r=INT 'oilChannelWidth''=' cw1=INT 'waterChannelWidth''=' cw2=INT 'angle''=' theta=INT 'length''=' l=INT ';'       
+    :   orientation=('V'|'H') 'DROPLET GENERATOR' 'T' ufname 'radius''=' r=INT 'oilChannelWidth''=' cw1=INT 'waterChannelWidth''=' cw2=INT ';'
+    |   orientation=('V'|'H') 'DROPLET GENERATOR' 'FLOW FOCUS' ufname 'radius''=' r=INT 'oilChannelWidth''=' cw1=INT 'waterChannelWidth''=' cw2=INT 'angle''=' theta=INT 'length''=' l=INT ';'       
     ;
 valve3DStat
-    :   orientation=('V'|'H') '3DVALVE' name=ID 'radius''=' r=INT 'gap''=' g=INT ';'
+    :   orientation=('V'|'H') '3DVALVE' ufname 'radius''=' r=INT 'gap''=' g=INT ';'
     ;
 viaStat
-    :   'VIA' name=ID (',' name=ID)*';'
+    :   'VIA' ufnames ';'
     ;
 transposerStat
-    :   'TRANSPOSER' name=ID 'valveRadius' '=' r=INT 'valveGap''=' g=INT 'flowChannelWidth''=' fw=INT 'controlChannelWidth''=' cw=INT ';' 
+    :   'TRANSPOSER' ufname 'valveRadius' '=' r=INT 'valveGap''=' g=INT 'flowChannelWidth''=' fw=INT 'controlChannelWidth''=' cw=INT ';' 
     ;
 
 //Control Statements
 valveStat
-    :   'VALVE' name=ID 'on' channel=ID ('w''='w=INT)? ('l' '='l=INT)?';'
+    :   'VALVE' ufname 'on' channel=ID ('w''='w=INT)? ('l' '='l=INT)?';'
     ; 
 
 netStat
-    :   'NET' name=ID 'from' srcName=ID srcTerm=INT 'to' tarName=ID tarTerm=INT (',' tarName=ID tarTerm=INT)+ 'channelWidth' '=' cw=INT ';'
+    :   'NET' ufname 'from' srcName=ID srcTerm=INT 'to' tarName=ID tarTerm=INT (',' tarName=ID tarTerm=INT)+ 'channelWidth' '=' cw=INT ';'
     ;
 
 //Common Parser Rules
 
+ufname
+    :   ID
+    ;
 
+ufnames
+    :   ufname (',' ufname)*
+    ;
+        
 
 //Common Lexical Rules
 

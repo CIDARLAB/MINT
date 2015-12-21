@@ -96,7 +96,7 @@ setCoordStat
     :   ufname ('SET X' x=INT) ('SET Y' y=INT) ';'
     ;
 mixerStat
-    :   orientation=('V'|'H') 'MIXER' ufname 'numBends''=' number_bends=INT 'bendSpacing=' bend_spacing=INT 'bendLength''=' bend_length=INT 'channelWidth''=' channel_width=INT ';'
+    :   orientation=('V'|'H') 'MIXER' ufname 'numBends''=' number_bends=INT 'bendSpacing''=' bend_spacing=INT 'bendLength''=' bend_length=INT 'channelWidth''=' channel_width=INT ';'
     ;
 gradGenStat
     :   orientation=('V'|'H') 'GRADIENT GENERATOR' ufname in=INT 'to' out=INT 'numBends''=' number_bends=INT 'bendSpacing''=' bend_spacing=INT 'bendLength''=' bend_length=INT 'channelWidth''=' channel_width=INT ';'

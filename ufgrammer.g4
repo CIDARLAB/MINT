@@ -7,14 +7,28 @@
 grammar ufgrammer;
 
 netlist 
-    :   header 
+    :   importBlock?
+        header 
+        ufmoduleStat*
         flowBlock 
         controlBlock? 
         EOF
     ;
 
+importBlock
+    :   importStat+
+    ;
+
+importStat
+    :   'IMPORT' ufmodulename ';'
+    ;
+
 header  
     :   (tag='3D')? 'DEVICE' ufname  
+    ;
+
+ufmoduleStat
+    :   ufmodulename ufnames ';'
     ;
 
 flowBlock 	
@@ -44,8 +58,7 @@ flowStat
 controlBlock
     :   'LAYER CONTROL'
         (s=controlStat)+ 
-        'END LAYER'
-               
+        'END LAYER'          
     ;
 
 controlStat 
@@ -56,10 +69,11 @@ controlStat
     |   valveStat
     |   setCoordStat
     |   netStat
+    |   ufmoduleStat
     ;
 
 
-//Flow Statements
+//Flow and Control Statements
 
 portStat
     :   'PORT' ufnames ('r''='r=INT)';'
@@ -69,6 +83,18 @@ portBankStat
     :   orientation='V' 'BANK' ufname 'of' number=INT 'PORT'  'r''='r=INT 'dir''='dir=('RIGHT'|'LEFT') 'spacing''='spacing=INT 'channelWidth''='channel_width=INT ';'
     |   orientation='H' 'BANK' ufname 'of' number=INT 'PORT'  'r''='r=INT 'dir''='dir=('UP'|'DOWN')  'spacing''='spacing=INT 'channelWidth''='channel_width=INT';'
     ;
+
+portBankStatParams
+    :   portBankStatParam (portBankStatParams)*
+    ;
+
+portBankStatParam
+    :   'r''='r=INT
+    |   'dir''='dir=('RIGHT'|'LEFT')
+    |   'spacing''='spacing=INT
+    |   'channelWidth''='channel_width=INT 
+    ;
+
 channelStat
     :   'CHANNEL' ufname 'from' component1=ID port1=INT 'to' component2=ID port2=INT 'w''='width=INT';'
     ;
@@ -86,8 +112,7 @@ logicArrayStat
     :   'LOGIC ARRAY' ufname 'flowChannelWidth''=' flow_channel_width=INT 'controlChannelWidth''=' control_channel_width=INT 'chamberLength''='chamber_length=INT 'chamberWidth''='chamber_width=INT 'r''='radius=INT ';'
     ;
 muxStat
-    :   orientation=('V'|'H') (type='MUX') ufname n1=INT 'to' n2=INT 'spacing''='spacing=INT 'flowChannelWidth''=' flow_channel_width=INT 'controlChannelWidth''=' control_channel_width=INT ';'
-        
+    :   orientation=('V'|'H') (type='MUX') ufname n1=INT 'to' n2=INT 'spacing''='spacing=INT 'flowChannelWidth''=' flow_channel_width=INT 'controlChannelWidth''=' control_channel_width=INT ';'       
     ;
 treeStat
     :   orientation=('V'|'H') (type='TREE') ufname n1=INT 'to' n2=INT 'spacing''='spacing=INT 'flowChannelWidth''='flow_channel_width=INT ';'
@@ -126,6 +151,13 @@ netStat
     :   'NET' ufname 'from' source_name=ID source_terminal=INT 'to' uftargets 'channelWidth' '=' channel_width=INT ';'
     ;
 
+//Common Parser Rules
+
+
+ufmodulename
+    :   ID
+    ;
+
 uftargets
     :    uftarget (',' uftarget)+
     ;
@@ -133,8 +165,6 @@ uftargets
 uftarget
     :   target_name=ID target_terminal=INT
     ;
-
-//Common Parser Rules
 
 ufname
     :   ID

@@ -9,7 +9,7 @@ grammar ufgrammer;
 netlist 
     :   importBlock?
         header 
-        ufmoduleStat*
+        ufmoduleBlock?
         flowBlock 
         controlBlock? 
         EOF
@@ -20,11 +20,15 @@ importBlock
     ;
 
 importStat
-    :   'IMPORT' ufmodulename ';'
+    :   'IMPORT' ufmodulename 
     ;
 
 header  
     :   (tag='3D')? 'DEVICE' ufname  
+    ;
+
+ufmoduleBlock
+    :   ufmoduleStat+
     ;
 
 ufmoduleStat
@@ -53,6 +57,7 @@ flowStat
     |   valve3DStat
     |   viaStat
     |   transposerStat
+    |   ufterminalStat
     ;
 
 controlBlock
@@ -70,6 +75,7 @@ controlStat
     |   setCoordStat
     |   netStat
     |   ufmoduleStat
+    |   ufterminalStat
     ;
 
 
@@ -151,11 +157,18 @@ netStat
     :   'NET' ufname 'from' source_name=ID source_terminal=INT 'to' uftargets 'channelWidth' '=' channel_width=INT ';'
     ;
 
+ufterminalStat
+    :   'TERMINAL' ufterminal ufname ';'
+    ;
 //Common Parser Rules
 
 
 ufmodulename
     :   ID
+    ;
+
+ufterminal
+    :   INT
     ;
 
 uftargets

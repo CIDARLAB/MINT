@@ -10,7 +10,7 @@ netlist
     :   importBlock?
         header 
         ufmoduleBlock?
-        flowBlock 
+        flowBlock? 
         controlBlock? 
         EOF
     ;

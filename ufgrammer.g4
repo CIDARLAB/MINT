@@ -158,7 +158,7 @@ netStat
     ;
 
 ufterminalStat
-    :   'TERMINAL' ufterminal ufname ';'
+    :   'TERMINAL' ufterminal ufname ('TOP'|'BOTTOM'|'LEFT'|'RIGHT')? ';'
     ;
 //Common Parser Rules
 
@@ -195,3 +195,6 @@ ID  :	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
 
 INT :   [0-9]+ ; // Define token INT as one or more digits
 WS  :   [ \t\r\n]+ -> skip ; // Define whitespace rule, toss it out
+
+COMMENT :    '#' ~[\r\n]* -> skip
+        ;

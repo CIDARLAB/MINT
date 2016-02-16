@@ -108,7 +108,7 @@ nodeStat
     :   'NODE' ufnames ';'
     ;
 cellTrapStat
-    :   (type='SQUARE CELL TRAP') ufnames 'chamberWidth''='channel_width=INT 'chamberLength''='chamber_length=INT 'channelWidth''='chamber_width=INT';'
+    :   (type='SQUARE CELL TRAP') ufnames 'chamberWidth''='chamber_width=INT 'chamberLength''='chamber_length=INT 'channelWidth''='channel_width=INT';'
     |   orientation=('V'|'H') (type='LONG CELL TRAP') ufnames  'numChambers''='num_chambers=INT 'chamberWidth''='chamber_width=INT 'chamberLength''='chamber_length=INT  'chamberSpacing''='chamber_spacing=INT 'channelWidth''='channel_width=INT';'
     ;
 cellTrapBankStat

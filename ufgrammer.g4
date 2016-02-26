@@ -111,43 +111,183 @@ cellTrapStat
     :   (type='SQUARE CELL TRAP') ufnames 'chamberWidth''='chamber_width=INT 'chamberLength''='chamber_length=INT 'channelWidth''='channel_width=INT';'
     |   orientation=('V'|'H') (type='LONG CELL TRAP') ufnames  'numChambers''='num_chambers=INT 'chamberWidth''='chamber_width=INT 'chamberLength''='chamber_length=INT  'chamberSpacing''='chamber_spacing=INT 'channelWidth''='channel_width=INT';'
     ;
+
+cellTrapStatParams
+    :   cellTrapStatParam (cellTrapStatParams)*
+    ;
+
+cellTrapStatParam
+    :   'chamberWidth''='chamber_width=INT
+    |   'chamberLength''='chamber_length=INT
+    |   'channelWidth''='channel_width=INT
+    ;
+
 cellTrapBankStat
     :   orientation=('V'|'H') 'BANK' ufname 'of' number=INT 'CELL TRAP'  'numChambers''='num_chambers=INT 'chamberWidth''='chamber_width=INT 'chamberLength''='chamber_length=INT  'chamberSpacing''='chamber_spacing=INT 'spacing''='spacing=INT 'channelWidth''='channel_width=INT';'
     ;
+
+cellTrapBankStatParams
+    :   cellTrapBankStatParam (cellTrapBankStatParams)*
+    ;
+
+cellTrapBankStatParam
+    :   'numChambers''='num_chambers=INT
+    |   'chamberWidth''='chamber_width=INT
+    |   'chamberLength''='chamber_length=INT
+    |   'chamberSpacing''='chamber_spacing=INT
+    |   'spacing''='spacing=INT
+    |   'channelWidth''='channel_width=INT 
+    ;
+
+
 logicArrayStat
     :   'LOGIC ARRAY' ufname 'flowChannelWidth''=' flow_channel_width=INT 'controlChannelWidth''=' control_channel_width=INT 'chamberLength''='chamber_length=INT 'chamberWidth''='chamber_width=INT 'r''='radius=INT ';'
     ;
+
+logicArrayStatParams
+    :   logicArrayStatParam (logicArrayStatParams)*
+    ;
+
+logicArrayStatParam
+    :   'flowChannelWidth''=' flow_channel_width=INT
+    |   'controlChannelWidth''=' control_channel_width=INT
+    |   'chamberLength''='chamber_length=INT
+    |   'chamberWidth''='chamber_width=INT 
+    |   'r''='radius=INT
+    ;
+
 muxStat
     :   orientation=('V'|'H') (type='MUX') ufname n1=INT 'to' n2=INT 'spacing''='spacing=INT 'flowChannelWidth''=' flow_channel_width=INT 'controlChannelWidth''=' control_channel_width=INT ';'       
     ;
+
+muxStatParams
+    :   muxStatParam (muxStatParams)*
+    ;
+
+muxStatParam
+    :   'spacing''='spacing=INT
+    |   'flowChannelWidth''=' flow_channel_width=INT
+    |   'controlChannelWidth''=' control_channel_width=INT
+    ;
+
 treeStat
     :   orientation=('V'|'H') (type='TREE') ufname n1=INT 'to' n2=INT 'spacing''='spacing=INT 'flowChannelWidth''='flow_channel_width=INT ';'
     ;
+
+treeStatParams
+    :   treeStatParam (treeStatParams)*
+    ;
+
+treeStatParam
+    :   'spacing''='spacing=INT
+    |   'flowChannelWidth''='flow_channel_width=INT
+    ;
+
 setCoordStat
     :   ufname ('SET X' x=INT) ('SET Y' y=INT) ';'
     ;
 mixerStat
     :   orientation=('V'|'H') 'MIXER' ufname 'numBends''=' number_bends=INT 'bendSpacing''=' bend_spacing=INT 'bendLength''=' bend_length=INT 'channelWidth''=' channel_width=INT ';'
     ;
+
+mixerStatParams
+    :   mixerStatParam (mixerStatParams)*
+    ;
+
+mixerStatParam
+    :   'bendSpacing''=' bend_spacing=INT 
+    |   'bendLength''=' bend_length=INT 
+    |   'channelWidth''=' channel_width=INT
+    ;
+
 gradGenStat
     :   orientation=('V'|'H') 'GRADIENT GENERATOR' ufname in=INT 'to' out=INT 'numBends''=' number_bends=INT 'bendSpacing''=' bend_spacing=INT 'bendLength''=' bend_length=INT 'channelWidth''=' channel_width=INT ';'
     ;
+
+
+gradGenStatParams
+    :   gradGenStatParam (gradGenStatParams)*
+    ;
+
+gradGenStatParam
+    :   'numBends''=' number_bends=INT 
+    |   'bendSpacing''=' bend_spacing=INT
+    |   'bendLength''=' bend_length=INT
+    |   'channelWidth''=' channel_width=INT 
+    ;
+
+
 rotaryStat
     :   orientation=('V'|'H') 'ROTARY PUMP' ufname 'radius''=' radius=INT 'flowChannelWidth''=' flow_channel_width=INT 'controlChannelWidth''=' control_channel_width=INT ';'
     ;
+
+
+rotaryStatParams
+    :   logicArrayStatParam (logicArrayStatParams)*
+    ;
+
+rotaryStatParam
+    :   'flowChannelWidth''=' flow_channel_width=INT 
+    |   'controlChannelWidth''=' control_channel_width=INT
+    ;
+
+
 dropletGenStat
     :   orientation=('V'|'H') 'DROPLET GENERATOR' (type='T') ufname 'radius''='radius=INT 'oilChannelWidth''=' oil_channel_width=INT 'waterChannelWidth''=' water_channel_width=INT ';' 
     |   orientation=('V'|'H') 'DROPLET GENERATOR' (type='FLOW FOCUS') ufname 'radius''='radius=INT 'oilChannelWidth''=' oil_channel_width=INT 'waterChannelWidth''=' water_channel_width=INT 'angle''=' angle=INT 'length''=' length=INT ';' 
     ;
+
+logicArrayStatParams
+    :   logicArrayStatParam (logicArrayStatParams)*
+    ;
+
+logicArrayStatParam
+    :   'flowChannelWidth''=' flow_channel_width=INT
+    |   'controlChannelWidth''=' control_channel_width=INT
+    |   'chamberLength''='chamber_length=INT
+    |   'chamberWidth''='chamber_width=INT 
+    |   'r''='radius=INT
+    ;
+
+
 valve3DStat
     :   orientation=('V'|'H') '3DVALVE' ufname 'radius''=' radius=INT 'gap''=' gap=INT ';'
     ;
+
+logicArrayStatParams
+    :   logicArrayStatParam (logicArrayStatParams)*
+    ;
+
+logicArrayStatParam
+    :   'flowChannelWidth''=' flow_channel_width=INT
+    |   'controlChannelWidth''=' control_channel_width=INT
+    |   'chamberLength''='chamber_length=INT
+    |   'chamberWidth''='chamber_width=INT 
+    |   'r''='radius=INT
+    ;
+
+
+
 viaStat
     :   'VIA' ufnames ';'
     ;
 transposerStat
     :   'TRANSPOSER' ufname 'valveRadius' '=' valve_radius=INT 'valveGap''=' valve_gap=INT 'flowChannelWidth''=' flow_channel_width=INT 'controlChannelWidth''=' control_channel_width=INT ';' 
     ;
+
+
+logicArrayStatParams
+    :   logicArrayStatParam (logicArrayStatParams)*
+    ;
+
+logicArrayStatParam
+    :   'flowChannelWidth''=' flow_channel_width=INT
+    |   'controlChannelWidth''=' control_channel_width=INT
+    |   'chamberLength''='chamber_length=INT
+    |   'chamberWidth''='chamber_width=INT 
+    |   'r''='radius=INT
+    ;
+
 
 valveStat
     :   'VALVE' ufname 'on' channel=ID ('w''='w=INT)? ('l' '='l=INT)?';'

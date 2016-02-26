@@ -107,6 +107,7 @@ channelStat
 nodeStat
     :   'NODE' ufnames ';'
     ;
+
 cellTrapStat
     :   (type='SQUARE CELL TRAP') ufnames 'chamberWidth''='chamber_width=INT 'chamberLength''='chamber_length=INT 'channelWidth''='channel_width=INT';'
     |   orientation=('V'|'H') (type='LONG CELL TRAP') ufnames  'numChambers''='num_chambers=INT 'chamberWidth''='chamber_width=INT 'chamberLength''='chamber_length=INT  'chamberSpacing''='chamber_spacing=INT 'channelWidth''='channel_width=INT';'
@@ -120,6 +121,9 @@ cellTrapStatParam
     :   'chamberWidth''='chamber_width=INT
     |   'chamberLength''='chamber_length=INT
     |   'channelWidth''='channel_width=INT
+    |   'numChambers''='num_chambers=INT
+    |   'chamberSpacing''='chamber_spacing=INT
+    |   'chamberLength''='chamber_length=INT
     ;
 
 cellTrapBankStat
@@ -195,7 +199,8 @@ mixerStatParams
     ;
 
 mixerStatParam
-    :   'bendSpacing''=' bend_spacing=INT 
+    :   'numBends''=' number_bends=INT
+    |   'bendSpacing''=' bend_spacing=INT 
     |   'bendLength''=' bend_length=INT 
     |   'channelWidth''=' channel_width=INT
     ;
@@ -223,30 +228,30 @@ rotaryStat
 
 
 rotaryStatParams
-    :   logicArrayStatParam (logicArrayStatParams)*
+    :   rotaryStatParam (rotaryStatParams)*
     ;
 
 rotaryStatParam
-    :   'flowChannelWidth''=' flow_channel_width=INT 
+    :   'radius''=' radius=INT
+    |   'flowChannelWidth''=' flow_channel_width=INT 
     |   'controlChannelWidth''=' control_channel_width=INT
     ;
-
 
 dropletGenStat
     :   orientation=('V'|'H') 'DROPLET GENERATOR' (type='T') ufname 'radius''='radius=INT 'oilChannelWidth''=' oil_channel_width=INT 'waterChannelWidth''=' water_channel_width=INT ';' 
     |   orientation=('V'|'H') 'DROPLET GENERATOR' (type='FLOW FOCUS') ufname 'radius''='radius=INT 'oilChannelWidth''=' oil_channel_width=INT 'waterChannelWidth''=' water_channel_width=INT 'angle''=' angle=INT 'length''=' length=INT ';' 
     ;
 
-logicArrayStatParams
+dropletGenStatParams
     :   logicArrayStatParam (logicArrayStatParams)*
     ;
 
-logicArrayStatParam
-    :   'flowChannelWidth''=' flow_channel_width=INT
-    |   'controlChannelWidth''=' control_channel_width=INT
-    |   'chamberLength''='chamber_length=INT
-    |   'chamberWidth''='chamber_width=INT 
-    |   'r''='radius=INT
+dropletGenStatParam
+    :   'radius''='radius=INT
+    |   'oilChannelWidth''=' oil_channel_width=INT
+    |   'waterChannelWidth''=' water_channel_width=INT 
+    |   'angle''=' angle=INT
+    |   'length''=' length=INT
     ;
 
 
@@ -254,16 +259,13 @@ valve3DStat
     :   orientation=('V'|'H') '3DVALVE' ufname 'radius''=' radius=INT 'gap''=' gap=INT ';'
     ;
 
-logicArrayStatParams
+valve3DStatParams
     :   logicArrayStatParam (logicArrayStatParams)*
     ;
 
-logicArrayStatParam
-    :   'flowChannelWidth''=' flow_channel_width=INT
-    |   'controlChannelWidth''=' control_channel_width=INT
-    |   'chamberLength''='chamber_length=INT
-    |   'chamberWidth''='chamber_width=INT 
-    |   'r''='radius=INT
+valve3DStatParam
+    :   'radius''=' radius=INT
+    |   'gap''=' gap=INT
     ;
 
 
@@ -276,16 +278,15 @@ transposerStat
     ;
 
 
-logicArrayStatParams
-    :   logicArrayStatParam (logicArrayStatParams)*
+transposerStatParams
+    :   transposerStatParam (transposerStatParams)*
     ;
 
-logicArrayStatParam
-    :   'flowChannelWidth''=' flow_channel_width=INT
+transposerStatParam
+    :   'valveRadius' '=' valve_radius=INT
+    |   'valveGap''=' valve_gap=INT
+    |   'flowChannelWidth''=' flow_channel_width=INT
     |   'controlChannelWidth''=' control_channel_width=INT
-    |   'chamberLength''='chamber_length=INT
-    |   'chamberWidth''='chamber_width=INT 
-    |   'r''='radius=INT
     ;
 
 
@@ -300,6 +301,11 @@ netStat
 ufterminalStat
     :   'TERMINAL' ufterminal ufname ('TOP'|'BOTTOM'|'LEFT'|'RIGHT')? ';'
     ;
+
+//Parameter Stats
+
+
+
 //Common Parser Rules
 
 

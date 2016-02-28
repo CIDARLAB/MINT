@@ -82,190 +82,202 @@ controlStat
 //Flow and Control Statements
 
 portStat
-    :   'PORT' ufnames ('r''='r=INT)';'
+    :   'PORT' ufnames (radiusParam)';'
     ;
    
 portBankStat
-    :   orientation='V' 'BANK' ufname 'of' number=INT 'PORT'  'r''='r=INT 'dir''='dir=('RIGHT'|'LEFT') 'spacing''='spacing=INT 'channelWidth''='channel_width=INT ';'
-    |   orientation='H' 'BANK' ufname 'of' number=INT 'PORT'  'r''='r=INT 'dir''='dir=('UP'|'DOWN')  'spacing''='spacing=INT 'channelWidth''='channel_width=INT';'
+    :   orientation='V' 'BANK' ufname 'of' number=INT 'PORT'  verticalPortBankStatParams ';'
+    |   orientation='H' 'BANK' ufname 'of' number=INT 'PORT'  horizontalPortBankStatParams ';'
     ;
 
-portBankStatParams
-    :   portBankStatParam (portBankStatParams)*
+verticalPortBankStatParams
+    :   (verticalPortBankStatParam)+
     ;
 
-portBankStatParam
-    :   'r''='r=INT
-    |   'dir''='dir=('RIGHT'|'LEFT')
-    |   'spacing''='spacing=INT
-    |   'channelWidth''='channel_width=INT 
+verticalPortBankStatParam
+    :   radiusParam
+    |   verticalDirectionParam
+    |   spacingParam
+    |   channelWidthParam 
+    ;
+
+horizontalPortBankStatParams
+    :   (horizontalPortBankStatParam)+
+    ;
+
+horizontalPortBankStatParam
+    :   radiusParam
+    |   horizontalDirectionParam
+    |   spacingParam
+    |   channelWidthParam 
     ;
 
 channelStat
-    :   'CHANNEL' ufname 'from' component1=ID port1=INT 'to' component2=ID port2=INT 'w''='width=INT';'
+    :   'CHANNEL' ufname 'from' component1=ID port1=INT 'to' component2=ID port2=INT widthParam ';'
     ;
+
 nodeStat
     :   'NODE' ufnames ';'
     ;
 
 cellTrapStat
-    :   (type='SQUARE CELL TRAP') ufnames 'chamberWidth''='chamber_width=INT 'chamberLength''='chamber_length=INT 'channelWidth''='channel_width=INT';'
-    |   orientation=('V'|'H') (type='LONG CELL TRAP') ufnames  'numChambers''='num_chambers=INT 'chamberWidth''='chamber_width=INT 'chamberLength''='chamber_length=INT  'chamberSpacing''='chamber_spacing=INT 'channelWidth''='channel_width=INT';'
+    :   (type='SQUARE CELL TRAP') ufnames cellTrapStatParams ';'
+    |   orientation=('V'|'H') (type='LONG CELL TRAP') ufnames  cellTrapStatParams ';'
     ;
 
 cellTrapStatParams
-    :   cellTrapStatParam (cellTrapStatParams)*
+    :   (cellTrapStatParam)+
     ;
 
 cellTrapStatParam
-    :   'chamberWidth''='chamber_width=INT
-    |   'chamberLength''='chamber_length=INT
-    |   'channelWidth''='channel_width=INT
-    |   'numChambers''='num_chambers=INT
-    |   'chamberSpacing''='chamber_spacing=INT
-    |   'chamberLength''='chamber_length=INT
+    :   chamberWidthParam
+    |   chamberLengthParam
+    |   channelWidthParam
+    |   numChambersParam
+    |   chamberSpacingParam
+    |   chamberLengthParam
     ;
 
 cellTrapBankStat
-    :   orientation=('V'|'H') 'BANK' ufname 'of' number=INT 'CELL TRAP'  'numChambers''='num_chambers=INT 'chamberWidth''='chamber_width=INT 'chamberLength''='chamber_length=INT  'chamberSpacing''='chamber_spacing=INT 'spacing''='spacing=INT 'channelWidth''='channel_width=INT';'
+    :   orientation=('V'|'H') 'BANK' ufname 'of' number=INT 'CELL TRAP'  cellTrapBankStatParams';'
     ;
 
 cellTrapBankStatParams
-    :   cellTrapBankStatParam (cellTrapBankStatParams)*
+    :   (cellTrapBankStatParam)+
     ;
 
 cellTrapBankStatParam
-    :   'numChambers''='num_chambers=INT
-    |   'chamberWidth''='chamber_width=INT
-    |   'chamberLength''='chamber_length=INT
-    |   'chamberSpacing''='chamber_spacing=INT
-    |   'spacing''='spacing=INT
-    |   'channelWidth''='channel_width=INT 
+    :   numChambersParam
+    |   chamberWidthParam
+    |   chamberLengthParam
+    |   chamberSpacingParam
+    |   channelWidthParam
+    |   spacingParam
     ;
 
 
 logicArrayStat
-    :   'LOGIC ARRAY' ufname 'flowChannelWidth''=' flow_channel_width=INT 'controlChannelWidth''=' control_channel_width=INT 'chamberLength''='chamber_length=INT 'chamberWidth''='chamber_width=INT 'r''='radius=INT ';'
+    :   'LOGIC ARRAY' ufname logicArrayStatParams ';'
     ;
 
 logicArrayStatParams
-    :   logicArrayStatParam (logicArrayStatParams)*
+    :   (logicArrayStatParam)+
     ;
 
 logicArrayStatParam
-    :   'flowChannelWidth''=' flow_channel_width=INT
-    |   'controlChannelWidth''=' control_channel_width=INT
-    |   'chamberLength''='chamber_length=INT
-    |   'chamberWidth''='chamber_width=INT 
-    |   'r''='radius=INT
+    :   flowChannelWidthParam
+    |   controlChannelWidthParam
+    |   chamberLengthParam
+    |   chamberWidthParam 
+    |   radiusParam
     ;
 
 muxStat
-    :   orientation=('V'|'H') (type='MUX') ufname n1=INT 'to' n2=INT 'spacing''='spacing=INT 'flowChannelWidth''=' flow_channel_width=INT 'controlChannelWidth''=' control_channel_width=INT ';'       
+    :   orientation=('V'|'H') (type='MUX') ufname n1=INT 'to' n2=INT muxStatParams ';'       
     ;
 
 muxStatParams
-    :   muxStatParam (muxStatParams)*
+    :   (muxStatParam)+
     ;
 
 muxStatParam
-    :   'spacing''='spacing=INT
-    |   'flowChannelWidth''=' flow_channel_width=INT
-    |   'controlChannelWidth''=' control_channel_width=INT
+    :   spacingParam
+    |   flowChannelWidthParam
+    |   controlChannelWidthParam
     ;
 
 treeStat
-    :   orientation=('V'|'H') (type='TREE') ufname n1=INT 'to' n2=INT 'spacing''='spacing=INT 'flowChannelWidth''='flow_channel_width=INT ';'
+    :   orientation=('V'|'H') (type='TREE') ufname n1=INT 'to' n2=INT treeStatParams ';'
     ;
 
 treeStatParams
-    :   treeStatParam (treeStatParams)*
+    :   (treeStatParam)+
     ;
 
 treeStatParam
-    :   'spacing''='spacing=INT
-    |   'flowChannelWidth''='flow_channel_width=INT
+    :   spacingParam
+    |   flowChannelWidthParam
     ;
 
 setCoordStat
     :   ufname ('SET X' x=INT) ('SET Y' y=INT) ';'
     ;
 mixerStat
-    :   orientation=('V'|'H') 'MIXER' ufname 'numBends''=' number_bends=INT 'bendSpacing''=' bend_spacing=INT 'bendLength''=' bend_length=INT 'channelWidth''=' channel_width=INT ';'
+    :   orientation=('V'|'H') 'MIXER' ufname mixerStatParams ';'
     ;
 
 mixerStatParams
-    :   mixerStatParam (mixerStatParams)*
+    :   (mixerStatParam)+
     ;
 
 mixerStatParam
-    :   'numBends''=' number_bends=INT
-    |   'bendSpacing''=' bend_spacing=INT 
-    |   'bendLength''=' bend_length=INT 
-    |   'channelWidth''=' channel_width=INT
+    :   numBendsParam
+    |   bendSpacingParam 
+    |   bendLengthParam
+    |   channelWidthParam
     ;
 
 gradGenStat
-    :   orientation=('V'|'H') 'GRADIENT GENERATOR' ufname in=INT 'to' out=INT 'numBends''=' number_bends=INT 'bendSpacing''=' bend_spacing=INT 'bendLength''=' bend_length=INT 'channelWidth''=' channel_width=INT ';'
+    :   orientation=('V'|'H') 'GRADIENT GENERATOR' ufname in=INT 'to' out=INT gradGenStatParams ';'
     ;
 
 
 gradGenStatParams
-    :   gradGenStatParam (gradGenStatParams)*
+    :   (gradGenStatParam)+
     ;
 
 gradGenStatParam
-    :   'numBends''=' number_bends=INT 
-    |   'bendSpacing''=' bend_spacing=INT
-    |   'bendLength''=' bend_length=INT
-    |   'channelWidth''=' channel_width=INT 
+    :   numBendsParam 
+    |   bendSpacingParam
+    |   bendLengthParam
+    |   channelWidthParam 
     ;
 
 
 rotaryStat
-    :   orientation=('V'|'H') 'ROTARY PUMP' ufname 'radius''=' radius=INT 'flowChannelWidth''=' flow_channel_width=INT 'controlChannelWidth''=' control_channel_width=INT ';'
+    :   orientation=('V'|'H') 'ROTARY PUMP' ufname rotaryStatParams ';'
     ;
 
 
 rotaryStatParams
-    :   rotaryStatParam (rotaryStatParams)*
+    :   (rotaryStatParam)+
     ;
 
 rotaryStatParam
-    :   'radius''=' radius=INT
-    |   'flowChannelWidth''=' flow_channel_width=INT 
-    |   'controlChannelWidth''=' control_channel_width=INT
+    :   radiusParam
+    |   flowChannelWidthParam 
+    |   controlChannelWidthParam
     ;
 
 dropletGenStat
-    :   orientation=('V'|'H') 'DROPLET GENERATOR' (type='T') ufname 'radius''='radius=INT 'oilChannelWidth''=' oil_channel_width=INT 'waterChannelWidth''=' water_channel_width=INT ';' 
-    |   orientation=('V'|'H') 'DROPLET GENERATOR' (type='FLOW FOCUS') ufname 'radius''='radius=INT 'oilChannelWidth''=' oil_channel_width=INT 'waterChannelWidth''=' water_channel_width=INT 'angle''=' angle=INT 'length''=' length=INT ';' 
+    :   orientation=('V'|'H') 'DROPLET GENERATOR' (type='T') ufname dropletGenStatParams ';' 
+    |   orientation=('V'|'H') 'DROPLET GENERATOR' (type='FLOW FOCUS') ufname dropletGenStatParams ';' 
     ;
 
 dropletGenStatParams
-    :   logicArrayStatParam (logicArrayStatParams)*
+    :   (dropletGenStatParam)+
     ;
 
 dropletGenStatParam
-    :   'radius''='radius=INT
-    |   'oilChannelWidth''=' oil_channel_width=INT
-    |   'waterChannelWidth''=' water_channel_width=INT 
-    |   'angle''=' angle=INT
-    |   'length''=' length=INT
+    :   radiusParam
+    |   oilChannelWidthParam
+    |   waterChannelWidthParam 
+    |   angleParam
+    |   lengthParam
     ;
 
 
 valve3DStat
-    :   orientation=('V'|'H') '3DVALVE' ufname 'radius''=' radius=INT 'gap''=' gap=INT ';'
+    :   orientation=('V'|'H') '3DVALVE' ufname valve3DStatParams ';'
     ;
 
 valve3DStatParams
-    :   logicArrayStatParam (logicArrayStatParams)*
+    :   (valve3DStatParam)+
     ;
 
 valve3DStatParam
-    :   'radius''=' radius=INT
-    |   'gap''=' gap=INT
+    :   radiusParam
+    |   gapParam
     ;
 
 
@@ -273,29 +285,30 @@ valve3DStatParam
 viaStat
     :   'VIA' ufnames ';'
     ;
+
 transposerStat
-    :   'TRANSPOSER' ufname 'valveRadius' '=' valve_radius=INT 'valveGap''=' valve_gap=INT 'flowChannelWidth''=' flow_channel_width=INT 'controlChannelWidth''=' control_channel_width=INT ';' 
+    :   'TRANSPOSER' ufname transposerStatParams ';' 
     ;
 
 
 transposerStatParams
-    :   transposerStatParam (transposerStatParams)*
+    :   (transposerStatParam)+
     ;
 
 transposerStatParam
-    :   'valveRadius' '=' valve_radius=INT
-    |   'valveGap''=' valve_gap=INT
-    |   'flowChannelWidth''=' flow_channel_width=INT
-    |   'controlChannelWidth''=' control_channel_width=INT
+    :   radiusParam
+    |   gapParam
+    |   flowChannelWidthParam
+    |   controlChannelWidthParam
     ;
 
 
 valveStat
-    :   'VALVE' ufname 'on' channel=ID ('w''='w=INT)? ('l' '='l=INT)?';'
+    :   'VALVE' ufname 'on' channel=ID widthParam? lengthParam?';'
     ; 
 
 netStat
-    :   'NET' ufname 'from' source_name=ID source_terminal=INT 'to' uftargets 'channelWidth' '=' channel_width=INT ';'
+    :   'NET' ufname 'from' source_name=ID source_terminal=INT 'to' uftargets channelWidthParam ';'
     ;
 
 ufterminalStat
@@ -304,9 +317,95 @@ ufterminalStat
 
 //Parameter Stats
 
+radiusParam
+    :   'r''='radius=value
+    |   'radius''=' radius=value
+    |   'valveRadius' '=' valve_radius=value
+    ;
+
+angleParam
+    :   'angle''=' angle=value
+    ;
+
+lengthParam
+    :   'length''=' length=value
+    |   'l' '=' length=value
+    ;
+
+verticalDirectionParam
+    :   'dir''='dir=('RIGHT'|'LEFT')
+    ;
+
+horizontalDirectionParam
+    :   'dir''='dir=('UP'|'DOWN')
+    ;
+
+numChambersParam
+    :   'numChambers''='num_chambers=value
+    ;
+
+chamberWidthParam
+    :   'chamberWidth''='chamber_width=value
+    ;
+
+chamberLengthParam
+    :   'chamberLength''='chamber_length=value
+    ;
+
+chamberSpacingParam
+    :   'chamberSpacing''='chamber_spacing=value
+    ;
+
+spacingParam
+    :   'spacing''='spacing=value
+    ;
+
+channelWidthParam
+    :   'channelWidth''='channel_width=value
+    ;
+
+widthParam
+    :   'w''='width=value
+    |   'width' '=' width=value
+    ;
+
+flowChannelWidthParam
+    :   'flowChannelWidth''=' flow_channel_width=value
+    ;
+
+controlChannelWidthParam
+    :   'controlChannelWidth''=' control_channel_width=value
+    ;
+
+numBendsParam
+    :   'numBends''=' number_bends=value
+    ;
+
+bendSpacingParam
+    :   'bendSpacing''=' bend_spacing=value
+    ;
+
+bendLengthParam
+    :   'bendLength''=' bend_length=value
+    ;
+
+oilChannelWidthParam
+    :   'oilChannelWidth''=' oil_channel_width=value
+    ;
+
+waterChannelWidthParam
+    :   'waterChannelWidth''=' water_channel_width=value
+    ;
+
+gapParam
+    :   'gap''=' gap=value
+    |   'valveGap''=' valve_gap=value
+    ;
+
 
 
 //Common Parser Rules
+
 
 
 ufmodulename
@@ -333,7 +432,9 @@ ufnames
     :   ufname (',' ufname)*
     ;
         
-
+value
+    :   INT
+    ;
 //Common Lexical Rules
 
 ID  :	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
@@ -342,5 +443,4 @@ ID  :	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
 INT :   [0-9]+ ; // Define token INT as one or more digits
 WS  :   [ \t\r\n]+ -> skip ; // Define whitespace rule, toss it out
 
-COMMENT :    '#' ~[\r\n]* -> skip
-        ;
+COMMENT :    '#' ~[\r\n]* -> skip ;

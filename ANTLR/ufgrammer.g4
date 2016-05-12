@@ -1,7 +1,5 @@
-    /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*
+ * krishna
  */
 
 grammar ufgrammer;
@@ -36,7 +34,9 @@ ufmoduleStat
     ;
 
 flowBlock 	
-    :   'LAYER FLOW' (s=flowStat)+ 'END LAYER' 
+    :   'LAYER FLOW' 
+        (s=flowStat)+ 
+        'END LAYER' 
     ;
 
 flowStat 	
@@ -58,6 +58,7 @@ flowStat
     |   viaStat
     |   transposerStat
     |   ufterminalStat
+    |   reactionChamberStat
     ;
 
 controlBlock
@@ -313,6 +314,19 @@ netStat
 
 ufterminalStat
     :   'TERMINAL' ufterminal ufname ('TOP'|'BOTTOM'|'LEFT'|'RIGHT')? ';'
+    ;
+
+reactionChamberStat
+    :   'REACTION CHAMBER' ufnames reactionChamberStatParams ';'
+    ;
+
+reactionChamberStatParams
+    :   (reactionChamberStatParam)+
+    ;
+
+reactionChamberStatParam
+    :   widthParam
+    |   lengthParam
     ;
 
 //Parameter Stats

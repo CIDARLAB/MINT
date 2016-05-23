@@ -10,6 +10,7 @@ netlist
         ufmoduleBlock?
         flowBlock? 
         controlBlock? 
+        behaviorBlock?
         EOF
     ;
 
@@ -67,6 +68,18 @@ controlBlock
         'END LAYER'          
     ;
 
+behaviorBlock
+    :   'BEHAVIOR'
+        protocolBlock+
+        'END BEHAVIOR'
+    ;
+
+protocolBlock
+    :   'PROTOCOL' protocolname
+        protocolStat+
+        'END PROTOCOL'
+    ;
+
 controlStat 
     :   portStat
     |   portBankStat
@@ -79,6 +92,11 @@ controlStat
     |   ufterminalStat
     ;
 
+protocolStat
+    :   setProtocolStat
+    |   waitProtocolStat
+    |   doProtocolStat
+    ;
 
 //Flow and Control Statements
 
@@ -329,6 +347,20 @@ reactionChamberStatParam
     |   lengthParam
     ;
 
+// Behavior Stats
+
+setProtocolStat
+    :   ufname 'SET' ( 'ON' | 'OFF' | INT ) ';'
+    ;
+
+waitProtocolStat
+    :   'WAIT' durationValue=INT ( 'H' | 'M' | 'S' ) ';'
+    ;
+
+doProtocolStat
+    :   ufname? 'DO' protocolname ';'
+    ;
+
 //Parameter Stats
 
 radiusParam
@@ -449,6 +481,11 @@ ufnames
 value
     :   INT
     ;
+
+protocolname
+    :   ID
+    ;
+
 //Common Lexical Rules
 
 ID  :	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*

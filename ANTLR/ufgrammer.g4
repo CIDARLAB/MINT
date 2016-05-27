@@ -96,6 +96,7 @@ protocolStat
     :   setProtocolStat
     |   waitProtocolStat
     |   doProtocolStat
+    |   startProtocolStat
     ;
 
 //Flow and Control Statements
@@ -350,15 +351,19 @@ reactionChamberStatParam
 // Behavior Stats
 
 setProtocolStat
-    :   ufname 'SET' ( 'ON' | 'OFF' | INT ) ';'
+    :   ufname 'SET' statevalue=( 'ON' | 'OFF' | INT ) ';'
     ;
 
 waitProtocolStat
-    :   'WAIT' durationValue=INT ( 'H' | 'M' | 'S' ) ';'
+    :   'WAIT' durationValue=INT unit=( 'H' | 'M' | 'S' ) ';'
     ;
 
 doProtocolStat
     :   ufname? 'DO' protocolname ';'
+    ;
+
+startProtocolStat
+    :   ufname? 'START' protocolname ';'
     ;
 
 //Parameter Stats

@@ -355,7 +355,15 @@ setProtocolStat
     ;
 
 waitProtocolStat
-    :   'WAIT' durationValue=INT unit=( 'H' | 'M' | 'S' ) ';'
+    :   'WAIT' timePeriodExpression ';'
+    ;
+
+timePeriodExpression
+    :   timePeriod+
+    ;
+
+timePeriod
+    : durationValue=INT unit=( 'H' | 'M' | 'S' )
     ;
 
 doProtocolStat

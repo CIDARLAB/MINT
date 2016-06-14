@@ -60,6 +60,7 @@ flowStat
     |   transposerStat
     |   ufterminalStat
     |   reactionChamberStat
+    |   diamondChamberStat
     ;
 
 controlBlock

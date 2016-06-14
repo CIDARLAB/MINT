@@ -335,6 +335,7 @@ ufterminalStat
     :   'TERMINAL' ufterminal ufname ('TOP'|'BOTTOM'|'LEFT'|'RIGHT')? ';'
     ;
 
+//Experimental
 reactionChamberStat
     :   'REACTION CHAMBER' ufnames reactionChamberStatParams ';'
     ;
@@ -346,6 +347,20 @@ reactionChamberStatParams
 reactionChamberStatParam
     :   widthParam
     |   lengthParam
+    ;
+
+diamondChamberStat
+    :   orientation=('V'|'H') 'DIAMOND CHAMBER' ufname diamondChamberStatParams ';'
+    ;
+
+diamondChamberStatParams
+    :   (diamondChamberParam)+
+    ;
+
+diamondChamberParam
+    :   channelWidthParam
+    |   lengthParam
+    |   widthParam
     ;
 
 // Behavior Stats

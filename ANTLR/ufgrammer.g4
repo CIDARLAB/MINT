@@ -350,7 +350,7 @@ reactionChamberStatParam
     ;
 
 diamondChamberStat
-    :   orientation=('V'|'H') 'DIAMOND CHAMBER' ufname diamondChamberStatParams ';'
+    :   orientation=('V'|'H') 'DIAMOND CHAMBER' ufnames diamondChamberStatParams ';'
     ;
 
 diamondChamberStatParams

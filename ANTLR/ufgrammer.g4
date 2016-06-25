@@ -336,6 +336,10 @@ ufterminalStat
     :   'TERMINAL' ufterminal ufname ('TOP'|'BOTTOM'|'LEFT'|'RIGHT')? ';'
     ;
 
+terminalBankStat
+    :   orientation=('V'|'H') 'TERMINAL BANK' ufname 'from' startpin=INT 'to' endpin=INT 'spacing''='INT';' 
+    ;
+
 //Experimental
 reactionChamberStat
     :   'REACTION CHAMBER' ufnames reactionChamberStatParams ';'

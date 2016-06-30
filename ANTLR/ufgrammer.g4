@@ -61,6 +61,7 @@ flowStat
     |   ufterminalStat
     |   reactionChamberStat
     |   diamondChamberStat
+    |   terminalBankStat
     ;
 
 controlBlock
@@ -91,6 +92,7 @@ controlStat
     |   netStat
     |   ufmoduleStat
     |   ufterminalStat
+    |   terminalBankStat
     ;
 
 protocolStat
@@ -337,7 +339,7 @@ ufterminalStat
     ;
 
 terminalBankStat
-    :   orientation=('V'|'H') 'TERMINAL BANK' ufname 'from' startpin=INT 'to' endpin=INT 'spacing''='INT';' 
+    :   orientation=('V'|'H') 'TERMINAL BANK' ufname 'from' startpin=INT 'to' endpin=INT spacingParam ';' 
     ;
 
 //Experimental

@@ -27,7 +27,12 @@ header
     ;
 
 ufmoduleBlock
-    :   ufmoduleStat+
+    :   (moduleStat)+
+    ;
+        
+moduleStat
+    :   ufmoduleStat
+    |   terminalBankStat
     ;
 
 ufmoduleStat

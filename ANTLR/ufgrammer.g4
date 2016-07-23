@@ -63,7 +63,7 @@ flowStat
     |   valve3DStat
     |   viaStat
     |   transposerStat
-    |   ufterminalStat
+    |   terminalStat
     |   reactionChamberStat
     |   diamondChamberStat
     |   terminalBankStat
@@ -96,7 +96,7 @@ controlStat
     |   setCoordStat
     |   netStat
     |   ufmoduleStat
-    |   ufterminalStat
+    |   terminalStat
     |   terminalBankStat
     ;
 
@@ -339,14 +339,23 @@ netStat
     :   'NET' ufname 'from' source_name=ID source_terminal=INT 'to' uftargets channelWidthParam ';'
     ;
 
-ufterminalStat
-    :   'TERMINAL' ufterminal ufname ('TOP'|'BOTTOM'|'LEFT'|'RIGHT')? ';'
+terminalStat
+    :   'TERMINAL' ufname ufterminalnumber positionParamStat? ';'
     ;
 
 terminalBankStat
-    :   orientation=('V'|'H') 'TERMINAL BANK' ufname 'from' startpin=INT 'to' endpin=INT spacingParam ';' 
+    :   'TERMINAL BANK' ufname 'from' startpin=INT 'to' endpin=INT terminalBankStatParams ';' 
     ;
 
+terminalBankStatParams
+    :   (terminalBankStatParam)+
+    ;
+
+terminalBankStatParam
+    :   spacingParam
+    |   positionParamStat
+    ;
+        
 //Experimental
 reactionChamberStat
     :   'REACTION CHAMBER' ufnames reactionChamberStatParams ';'
@@ -402,6 +411,10 @@ startProtocolStat
     ;
 
 //Parameter Stats
+
+positionParamStat
+    :   'position''=' position=('TOP'|'BOTTOM'|'LEFT'|'RIGHT')
+    ;
 
 radiusParam
     :   'r''='radius=value
@@ -498,7 +511,7 @@ ufmodulename
     :   ID
     ;
 
-ufterminal
+ufterminalnumber
     :   INT
     ;
 

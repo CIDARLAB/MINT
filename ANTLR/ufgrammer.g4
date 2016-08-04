@@ -67,6 +67,7 @@ flowStat
     |   reactionChamberStat
     |   diamondChamberStat
     |   terminalBankStat
+    |   taperStat
     ;
 
 controlBlock
@@ -355,7 +356,27 @@ terminalBankStatParam
     :   spacingParam
     |   positionParamStat
     ;
-        
+
+taperStat
+    :   orientation=('V'|'H') 'TAPER' ufnames taperStatParams ';'
+    ;
+
+taperStatParams
+    :   (taperStatParam)+
+    ;
+
+
+
+taperStatParam
+    :   maxWidthParam
+    |   taperingDegreeParam   
+    |   lengthParam
+    ;
+
+taperBankStat
+    :   orientation=('V'|'H') 'BANK' ufname 'of' number=INT 'TAPER'  taperStatParams';'
+    ;
+
 //Experimental
 reactionChamberStat
     :   'REACTION CHAMBER' ufnames reactionChamberStatParams ';'
@@ -411,6 +432,14 @@ startProtocolStat
     ;
 
 //Parameter Stats
+
+maxWidthParam
+    :   'maxWidth''='maxwidth=value
+    ;
+
+taperingDegreeParam
+    :   'taperingDegree''='taperingdegree=value
+    ;
 
 positionParamStat
     :   'position''=' position=('TOP'|'BOTTOM'|'LEFT'|'RIGHT')

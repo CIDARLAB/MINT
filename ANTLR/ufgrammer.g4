@@ -370,7 +370,7 @@ taperStatParams
 taperStatParam
     :   maxWidthParam
     |   taperingDegreeParam   
-    |   lengthParam
+    |   channelLengthParam
     ;
 
 taperBankStat
@@ -432,6 +432,10 @@ startProtocolStat
     ;
 
 //Parameter Stats
+
+channelLengthParam
+    :   'channelLength''='channellength=value
+    ;
 
 maxWidthParam
     :   'maxWidth''='maxwidth=value
@@ -569,6 +573,8 @@ protocolname
     ;
 
 //Common Lexical Rules
+
+BOOLEAN :   ('YES'|'NO');
 
 ID  :	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
     ;

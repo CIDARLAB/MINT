@@ -260,6 +260,7 @@ gradGenStatParam
     |   bendSpacingParam
     |   bendLengthParam
     |   channelWidthParam 
+    |   focusParam
     ;
 
 
@@ -433,6 +434,10 @@ startProtocolStat
 
 //Parameter Stats
 
+focusParam
+    :   'focus''='value
+    ;
+
 channelLengthParam
     :   'channelLength''='channellength=value
     ;
@@ -565,7 +570,7 @@ ufnames
     ;
         
 value
-    :   INT
+    :   (INT | BOOLEAN)
     ;
 
 protocolname

@@ -281,7 +281,8 @@ rotaryStatParam
 
 dropletGenStat
     :   orientation=('V'|'H') 'DROPLET GENERATOR' (type='T') ufname dropletGenStatParams ';' 
-    |   orientation=('V'|'H') 'DROPLET GENERATOR' (type='FLOW FOCUS') ufname dropletGenStatParams ';' 
+    |   orientation=('V'|'H') 'DROPLET GENERATOR' (type='FLOW FOCUS') ufname dropletGenStatParams ';'
+    |   orientation=('V'|'H') 'DROPLET GENERATOR' (type='NOZZLE') ufname dropletGenStatParams ';'
     ;
 
 dropletGenStatParams
@@ -294,6 +295,7 @@ dropletGenStatParam
     |   waterChannelWidthParam 
     |   angleParam
     |   lengthParam
+    |   orificeWidthParam
     ;
 
 
@@ -405,6 +407,7 @@ diamondChamberParam
     |   lengthParam
     |   widthParam
     ;
+
 
 // Behavior Stats
 
@@ -539,7 +542,9 @@ gapParam
     |   'valveGap''=' valve_gap=value
     ;
 
-
+orificeWidthParam
+    :   'orificeWidth''=' orifice_width=value
+    ;
 
 //Common Parser Rules
 

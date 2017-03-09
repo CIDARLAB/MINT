@@ -1,5 +1,5 @@
 {
-  "name":"CELL TRAP BANK",
+  "name":"CellTrapBank",
   "type":"COMPOSITE",
   "params":{
     "numChambers":"INT",

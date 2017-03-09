@@ -1,5 +1,5 @@
 {
-  "name":"PORT",
+  "name":"Port",
   "type":"PRIMITIVE",
   "params":{
     "r":"INT"

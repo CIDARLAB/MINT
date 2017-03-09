@@ -1,5 +1,5 @@
 {
-  "name":"MUX",
+  "name":"Mux",
   "type":"COMPOSITE",
   "params":{
     "spacing":"INT",

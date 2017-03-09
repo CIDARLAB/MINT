@@ -1,5 +1,5 @@
 {
-  "name":"MIXER",
+  "name":"Mixer",
   "type":"PRIMITIVE",
   "params":{
     "channelWidth":"INT",

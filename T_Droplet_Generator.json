@@ -1,5 +1,5 @@
 {
-  "name":"T_DROPLET",
+  "name":"TDroplet",
   "type":"COMPOSITE",
   "params":{
     "radius":"INT",

@@ -1,5 +1,5 @@
 {
-  "name":"GRADIENT GENERATOR",
+  "name":"GradientGenerator",
   "type":"COMPOSITE",
   "params":{
     "numBends":"INT",

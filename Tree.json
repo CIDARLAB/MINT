@@ -1,5 +1,5 @@
 {
-  "name":"TREE",
+  "name":"Tree",
   "type":"COMPOSITE",
   "params":{
     "spacing":"INT",

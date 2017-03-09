@@ -1,0 +1,11 @@
+{
+  "name":"PORT BANK",
+  "type":"COMPOSITE",
+  "params":{
+    "r":"INT",
+    "spacing":"INT",
+    "channelWidth":"INT",
+    "orientation":"ORIENTATION",
+    "direction":"DIRECTION"
+  }
+}

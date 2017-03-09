@@ -1,0 +1,11 @@
+{
+  "name":"MIXER",
+  "type":"PRIMITIVE",
+  "params":{
+    "channelWidth":"INT",
+    "bendLength":"INT",
+    "bendSpacing":"INT",
+    "numBends":"INT",
+    "orientation":"ORIENTATION"
+  }
+}

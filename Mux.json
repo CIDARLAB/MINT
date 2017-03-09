@@ -1,0 +1,13 @@
+{
+  "name":"MUX",
+  "type":"COMPOSITE",
+  "params":{
+    "spacing":"INT",
+    "flowChannelWidth":"INT",
+    "controlChannelWidth":"INT",
+    "direction":"DIRECTION",
+    "orientation":"ORIENTATION",
+    "in":"INT",
+    "out":"INT"
+  }
+}

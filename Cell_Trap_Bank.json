@@ -1,0 +1,12 @@
+{
+  "name":"CELL TRAP BANK",
+  "type":"COMPOSITE",
+  "params":{
+    "numChambers":"INT",
+    "spacing":"INT",
+    "chamberWidth":"INT",
+    "chamberLength":"ORIENTATION",
+    "chamberSpacing":"INT",
+    "channelWidth":"INT"
+  }
+}

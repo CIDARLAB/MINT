@@ -1,0 +1,10 @@
+{
+  "name":"SQUARE CELL TRAP",
+  "type":"PRIMITIVE",
+  "params":{
+    "chamberWidth":"INT",
+    "chamberLength":"INT",
+    "chamberSpacing":"INT",
+    "channelWidth":"INT"
+  }
+}

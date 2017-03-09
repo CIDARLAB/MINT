@@ -1,0 +1,13 @@
+{
+  "name":"FF_DROPLET",
+  "type":"COMPOSITE",
+  "params":{
+    "radius":"INT",
+    "angle":"INT",
+    "length":"INT",
+    "oilChannelWidth":"INT",
+    "waterChannelWidth":"INT",
+    "orientation":"ORIENTATION",
+    "direction":"DIRECTION"
+  }
+}

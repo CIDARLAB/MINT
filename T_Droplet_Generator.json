@@ -1,0 +1,11 @@
+{
+  "name":"T_DROPLET",
+  "type":"COMPOSITE",
+  "params":{
+    "radius":"INT",
+    "oilChannelWidth":"INT",
+    "waterChannelWidth":"INT",
+    "orientation":"ORIENTATION",
+    "direction":"DIRECTION"
+  }
+}

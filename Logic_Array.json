@@ -1,0 +1,13 @@
+{
+  "name":"LOGIC ARRAY",
+  "type":"COMPOSITE",
+  "params":{
+    "flowChannelWidth":"INT",
+    "controlChannelWidth":"INT",
+    "chamberLength":"INT",
+    "chamberWidth":"INT",
+    "direction":"DIRECTION",
+    "orientation":"ORIENTATION",
+    "r":"INT"
+  }
+}

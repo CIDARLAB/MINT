@@ -6,6 +6,7 @@
     "spacing":"INT",
     "channelWidth":"INT",
     "orientation":"ORIENTATION",
-    "direction":"DIRECTION"
+    "direction":"DIRECTION",
+    "numberOfPorts":"INT"
   }
 }

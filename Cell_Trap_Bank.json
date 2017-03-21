@@ -2,6 +2,7 @@
   "name":"CellTrapBank",
   "type":"COMPOSITE",
   "params":{
+    "numberOfCellTraps":"INT",
     "numChambers":"INT",
     "spacing":"INT",
     "chamberWidth":"INT",

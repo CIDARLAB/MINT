@@ -1,5 +1,6 @@
 {
   "name":"CellTrapBank",
+  "mint":"CELL TRAP BANK",
   "type":"COMPOSITE",
   "params":{
     "numberOfCellTraps":"INT",

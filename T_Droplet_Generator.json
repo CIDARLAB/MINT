@@ -1,5 +1,6 @@
 {
   "name":"TDroplet",
+  "mint":"DROPLET GENERATOR T",
   "type":"COMPOSITE",
   "params":{
     "radius":"INT",

@@ -1,5 +1,6 @@
 {
   "name":"LogicArray",
+  "mint":"LOGIC ARRAY",
   "type":"COMPOSITE",
   "params":{
     "flowChannelWidth":"INT",

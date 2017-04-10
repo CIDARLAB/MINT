@@ -1,6 +1,6 @@
 {
   "name":"Valve",
-  "mint":"VALVE",
+  "mint":"3DVALVE",
   "type":"PRIMITIVE",
   "params":{
     "w":"INT",

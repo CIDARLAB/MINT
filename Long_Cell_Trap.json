@@ -1,5 +1,6 @@
 {
   "name":"CellTrapL",
+  "mint":"LONG CELL TRAP",
   "type":"PRIMITIVE",
   "params":{
     "chamberWidth":"INT",

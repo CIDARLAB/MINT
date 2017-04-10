@@ -1,5 +1,6 @@
 {
   "name":"RotaryPump",
+  "mint":"ROTARY PUMP",
   "type":"COMPOSITE",
   "params":{
     "flowChannelWidth":"INT",

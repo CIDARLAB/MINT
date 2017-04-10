@@ -1,5 +1,6 @@
 {
   "name":"Port",
+  "mint":"PORT",
   "type":"PRIMITIVE",
   "params":{
     "r":"INT"

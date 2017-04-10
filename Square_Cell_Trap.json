@@ -1,5 +1,6 @@
 {
   "name":"CellTrapS",
+  "mint":"SQUARE CELL TRAP",
   "type":"PRIMITIVE",
   "params":{
     "chamberWidth":"INT",

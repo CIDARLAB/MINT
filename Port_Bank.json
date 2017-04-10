@@ -1,5 +1,6 @@
 {
   "name":"PortBank",
+  "mint":"PORT BANK",
   "type":"COMPOSITE",
   "params":{
     "r":"INT",

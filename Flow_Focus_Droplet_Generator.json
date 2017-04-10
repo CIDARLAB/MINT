@@ -1,5 +1,6 @@
 {
   "name":"FFDroplet",
+  "mint":"DROPLET GENERATOR FLOW FOCUS",
   "type":"COMPOSITE",
   "params":{
     "radius":"INT",

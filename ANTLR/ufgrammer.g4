@@ -233,7 +233,7 @@ setCoordStat
     ;
 
 setCoordParam
-    :   'SET' ('X'|'Y') coordinate=INT
+    :   'SET' coordinate=('X'|'Y') val=INT
     ;
 
 mixerStat

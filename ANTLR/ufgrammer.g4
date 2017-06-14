@@ -229,8 +229,13 @@ treeStatParam
     ;
 
 setCoordStat
-    :   ufname ('SET X' x=INT) ('SET Y' y=INT) ';'
+    :   ufname setCoordParam+ ';'
     ;
+
+setCoordParam
+    :   'SET' ('X'|'Y') coordinate=INT
+    ;
+
 mixerStat
     :   orientation=('V'|'H') 'MIXER' ufname mixerStatParams ';'
     ;

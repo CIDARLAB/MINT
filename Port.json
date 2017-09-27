@@ -2,7 +2,17 @@
   "name":"Port",
   "mint":"PORT",
   "type":"PRIMITIVE",
+  "xspan":"100",
+  "yspan":"100",
   "params":{
     "r":"INT"
+  },
+  "defaults":{
+    "r":10
+  },
+  "designRules":{
+    "componentSpacing":100,
+    "routingSpacing":100
   }
+
 }

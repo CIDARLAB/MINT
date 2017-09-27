@@ -1,0 +1,14 @@
+{
+  "name":"Channel",
+  "mint":"CHANNEL",
+  "type":"PRIMITIVE",
+  "params":{
+    "w":"INT",
+    "length":"INT",
+    "depth":"INT"
+  },
+  "defaults":{
+    "w":100,
+    "depth":50
+  }
+}

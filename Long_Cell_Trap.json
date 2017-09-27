@@ -2,6 +2,8 @@
   "name":"CellTrapL",
   "mint":"LONG CELL TRAP",
   "type":"PRIMITIVE",
+  "xspan":"2*chamberLength+channelWidth",
+  "yspan":"numChambers/2 * (chamberWidth+chamberSpacing)",
   "params":{
     "chamberWidth":"INT",
     "chamberLength":"INT",
@@ -9,5 +11,17 @@
     "channelWidth":"INT",
     "numChambers":"INT",
     "orientation":"ORIENTATION"
+  },
+  "defaults":{
+    "chamberWidth":10,
+    "chamberLength":10,
+    "chamberSpacing":3,
+    "channelWidth":10,
+    "numChambers":20,
+    "orientation":"V"
+  },
+  "designRules":{
+    "componentSpacing":100,
+    "routingSpacing":100
   }
 }

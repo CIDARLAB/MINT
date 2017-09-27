@@ -1,7 +1,9 @@
 {
   "name":"GradientGenerator",
   "mint":"GRADIENT GENERATOR",
-  "type":"COMPOSITE",
+  "type":"SCALING",
+  "xspan":"100",
+  "yspan":"100",
   "params":{
     "numBends":"INT",
     "bendSpacing":"INT",
@@ -11,5 +13,21 @@
     "orientation":"ORIENTATION",
     "in":"INT",
     "out":"INT"
+  },
+  "defaults":{
+    "numBends":"INT",
+    "bendSpacing":"INT",
+    "bendLength":"INT",
+    "channelWidth":10,
+    "direction":"DOWN",
+    "orientation":"V",
+    "in":1,
+    "out":2
+  },
+  "designRules":{
+    "componentSpacing":100,
+    "routingSpacing":100
   }
+
+  
 }

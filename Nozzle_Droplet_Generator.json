@@ -1,0 +1,29 @@
+{
+    "name":"NozzleDroplet",
+    "mint":"DROPLET GENERATOR NOZZLE",
+    "type":"PRIMITIVE",
+    "params":{
+      "radius":"INT",
+      "angle":"INT",
+      "length":"INT",
+      "oilChannelWidth":"INT",
+      "waterChannelWidth":"INT",
+      "orientation":"ORIENTATION",
+      "direction":"DIRECTION"
+    },
+    "defaults":{
+      "radius":10,
+      "angle":45,
+      "length":10,
+      "oilChannelWidth":10,
+      "waterChannelWidth":5,
+      "orientation":"V",
+      "direction":"DOWN"
+    },
+    "designRules":{
+      "componentSpacing":100,
+      "routingSpacing":100
+    }
+  
+  }
+  

@@ -2,8 +2,18 @@
   "name":"Valve",
   "mint":"VALVE",
   "type":"PRIMITIVE",
+  "xspan":"w",
+  "yspan":"l",
   "params":{
     "w":"INT",
     "l":"INT"
+  },
+  "defaults":{
+    "w":"30",
+    "l":"10"
+  },
+  "designRules":{
+    "componentSpacing":100,
+    "routingSpacing":100
   }
 }

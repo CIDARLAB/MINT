@@ -2,8 +2,18 @@
   "name":"Valve",
   "mint":"3DVALVE",
   "type":"PRIMITIVE",
+  "xspan":"2*radius",
+  "yspan":"2*radius",
   "params":{
-    "w":"INT",
-    "l":"INT"
+    "radius":"INT",
+    "gap":"INT"
+  },
+  "defaults":{
+    "gap":10,
+    "radius":100
+  },
+  "designRules":{
+    "componentSpacing":100,
+    "routingSpacing":100
   }
 }

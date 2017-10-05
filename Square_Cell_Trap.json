@@ -2,8 +2,8 @@
   "name":"CellTrapS",
   "mint":"SQUARE CELL TRAP",
   "type":"PRIMITIVE",
-  "xspan":"2*chamberWidth+feedingChannelWidth",
-  "yspan":"2*chamberLength+feedingChannelWidth",
+  "xspan":"2*chamberWidth+channelWidth",
+  "yspan":"2*chamberLength+channelWidth",
   "params":{
     "chamberWidth":"INT",
     "chamberLength":"INT",
@@ -19,6 +19,33 @@
   "designRules":{
     "componentSpacing":100,
     "routingSpacing":100
-  }
+  },
+  "terminals":[
+    {
+      "x":"chamberWidth + 0.5*channelWidth",
+      "y":"0",
+      "label":"1",
+      "layer":"FLOW"
+    },
+    {
+      "x":"chamberWidth + 0.5*channelWidth",
+      "y":"2*chamberLength + channelWidth",
+      "label":"3",
+      "layer":"FLOW"
+    },
+    {
+      "x":"2*chamberLength + channelWidth",
+      "y":"chamberWidth + 0.5*channelWidth",
+      "label":"2",
+      "layer":"FLOW"
+    },
+    {
+      "x":"0",
+      "y":"chamberWidth + 0.5*channelWidth",
+      "label":"4",
+      "layer":"FLOW"
+    }
+  ]
+
 
 }

@@ -1,7 +1,7 @@
 {
   "name":"Channel",
   "mint":"CHANNEL",
-  "type":"PRIMITIVE",
+  "type":"FEATURE",
   "params":{
     "w":"INT",
     "length":"INT",

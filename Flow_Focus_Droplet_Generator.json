@@ -27,6 +27,16 @@
   "designRules":{
     "componentSpacing":100,
     "routingSpacing":100
-  }
-
+  },
+  "layers":[
+    "FLOW"
+  ],
+  "terminals":[
+    {
+      "x":"3*radius + portSpacing",
+      "y":"2*radius + portSpacing + length",
+      "label":"1",
+      "layer":"FLOW"
+    }
+  ]
 }

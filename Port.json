@@ -2,8 +2,8 @@
   "name":"Port",
   "mint":"PORT",
   "type":"PRIMITIVE",
-  "xspan":"100",
-  "yspan":"100",
+  "xspan":"2*r",
+  "yspan":"2*r",
   "params":{
     "r":"INT"
   },

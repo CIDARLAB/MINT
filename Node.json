@@ -1,0 +1,25 @@
+{
+  "name":"Node",
+  "mint":"NODE",
+  "type":"PRIMITIVE",
+  "xspan":"0",
+  "yspan":"0",
+  "params":{
+  },
+  "defaults":{
+  },
+  "designRules":{
+    "componentSpacing":100,
+    "routingSpacing":100
+  },
+  "terminals":[
+    {
+      "x":"0",
+      "y":"0",
+      "label":"1",
+      "layer":"FLOW"
+    }
+  ]
+
+
+}

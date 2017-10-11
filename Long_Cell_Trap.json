@@ -23,5 +23,19 @@
   "designRules":{
     "componentSpacing":100,
     "routingSpacing":100
-  }
+  },
+  "terminals":[
+    {
+      "x":"chamberLength+channelWidth/2",
+      "y":"0",
+      "label":"1",
+      "layer":"FLOW"
+    },
+    {
+      "x":"chamberLength+channelWidth/2",
+      "y":"numChambers/2 * (chamberWidth+chamberSpacing)",
+      "label":"2",
+      "layer":"FLOW"
+    }
+  ]
 }

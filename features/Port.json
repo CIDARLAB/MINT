@@ -2,44 +2,12 @@
   "name":"Port",
   "mint":"PORT",
   "type":"PRIMITIVE",
-  "xspan":"2*r",
-  "yspan":"2*r",
-  "params":{
-    "r":"INT"
-  },
-  "defaults":{
-    "r":10
-  },
-  "designRules":{
-    "componentSpacing":100,
-    "routingSpacing":100
-  },
-  "terminals":[
+  "process":"2.5D",
+  "features":[
     {
-      "x":"r",
-      "y":"0",
-      "label":"1",
-      "layer":"FLOW"
-    },
-    {
-      "x":"r",
-      "y":"2*r",
-      "label":"3",
-      "layer":"FLOW"
-    },
-    {
-      "x":"2*r",
-      "y":"r",
-      "label":"2",
-      "layer":"FLOW"
-    },
-    {
-      "x":"0",
-      "y":"r",
-      "label":"4",
-      "layer":"FLOW"
+      "name":"Port",
+      "layer":"FLOW",
+      "type":"Z"
     }
   ]
-
-
 }

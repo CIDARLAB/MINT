@@ -2,44 +2,12 @@
   "name":"Valve",
   "mint":"VALVE",
   "type":"PRIMITIVE",
-  "xspan":"w",
-  "yspan":"l",
-  "params":{
-    "w":"INT",
-    "l":"INT"
-  },
-  "defaults":{
-    "w":"30",
-    "l":"10"
-  },
-  "designRules":{
-    "componentSpacing":100,
-    "routingSpacing":100
-  },
-  "terminals":[
+  "process":"2.5D",
+  "features":[
     {
-      "x":"w/2",
-      "y":"0",
-      "label":"1",
-      "layer":"FLOW"
-    },
-    {
-      "x":"w",
-      "y":"l/2",
-      "label":"2",
-      "layer":"FLOW"
-    },
-    {
-      "x":"w/2",
-      "y":"l",
-      "label":"3",
-      "layer":"FLOW"
-    },
-    {
-      "x":"0",
-      "y":"l/2",
-      "label":"4",
-      "layer":"FLOW"
+      "name":"Valve",
+      "layer":"CONTROL",
+      "type":"XY"
     }
   ]
 

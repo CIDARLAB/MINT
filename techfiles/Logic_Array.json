@@ -1,0 +1,30 @@
+{
+  "name":"LogicArray",
+  "mint":"LOGIC ARRAY",
+  "type":"COMPOSITE",
+  "xspan":"100",
+  "yspan":"100",
+  "params":{
+    "flowChannelWidth":"INT",
+    "controlChannelWidth":"INT",
+    "chamberLength":"INT",
+    "chamberWidth":"INT",
+    "direction":"DIRECTION",
+    "orientation":"ORIENTATION",
+    "r":"INT"
+  },
+  "defaults":{
+    "flowChannelWidth":5,
+    "controlChannelWidth":10,
+    "chamberLength":10,
+    "chamberWidth":10,
+    "direction":"DOWN",
+    "orientation":"V",
+    "r":"10"
+  },
+  "designRules":{
+    "componentSpacing":100,
+    "routingSpacing":100
+  }
+
+}

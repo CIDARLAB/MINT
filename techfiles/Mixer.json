@@ -1,0 +1,26 @@
+{
+  "name":"Mixer",
+  "mint":"MIXER",
+  "type":"PRIMITIVE",
+  "xspan":"bendLength + 2*channelWidth",
+  "yspan":"(2*numBends + 1)*channelWidth + (2*numBends)*bendSpacing",
+  "params":{
+    "channelWidth":"INT",
+    "bendLength":"INT",
+    "bendSpacing":"INT",
+    "numBends":"INT",
+    "orientation":"ORIENTATION"
+  },
+  "defaults":{
+    "channelWidth":10,
+    "bendLength":100,
+    "bendSpacing":10,
+    "numBends":10,
+    "orientation":"V"
+  },
+  "designRules":{
+    "componentSpacing":100,
+    "routingSpacing":100
+  }
+
+}

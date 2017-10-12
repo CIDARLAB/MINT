@@ -1,0 +1,21 @@
+{
+  "name":"RotaryPump",
+  "mint":"ROTARY PUMP",
+  "type":"COMPOSITE",
+  "params":{
+    "flowChannelWidth":"INT",
+    "controlChannelWidth":"INT",
+    "orientation":"ORIENTATION",
+    "radius":"INT"
+  },
+  "defaults":{
+    "flowChannelWidth":10,
+    "controlChannelWidth":5,
+    "orientation":"V",
+    "radius":300
+  },
+  "designRules":{
+    "componentSpacing":100,
+    "routingSpacing":100
+  }
+}

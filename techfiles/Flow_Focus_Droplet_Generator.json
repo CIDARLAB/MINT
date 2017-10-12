@@ -1,0 +1,42 @@
+{
+  "name":"FFDroplet",
+  "mint":"DROPLET GENERATOR FLOW FOCUS",
+  "type":"COMPOSITE",
+  "xspan":"6*radius + 2*portSpacing",
+  "yspan":"2*radius + portSpacing + length",
+  "params":{
+    "radius":"INT",
+    "angle":"INT",
+    "length":"INT",
+    "oilChannelWidth":"INT",
+    "waterChannelWidth":"INT",
+    "orientation":"ORIENTATION",
+    "direction":"DIRECTION",
+    "portSpacing":"INT"
+  },
+  "defaults":{
+    "radius":10,
+    "angle":45,
+    "length":10,
+    "oilChannelWidth":10,
+    "waterChannelWidth":5,
+    "orientation":"V",
+    "direction":"DOWN",
+    "portSpacing":300
+  },
+  "designRules":{
+    "componentSpacing":100,
+    "routingSpacing":100
+  },
+  "layers":[
+    "FLOW"
+  ],
+  "terminals":[
+    {
+      "x":"3*radius + portSpacing",
+      "y":"2*radius + portSpacing + length",
+      "label":"1",
+      "layer":"FLOW"
+    }
+  ]
+}

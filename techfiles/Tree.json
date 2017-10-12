@@ -1,0 +1,27 @@
+{
+  "name":"Tree",
+  "mint":"TREE",
+  "type":"SCALING",
+  "xspan":"100",
+  "yspan":"100",
+  "params":{
+    "spacing":"INT",
+    "channelWidth":"INT",
+    "direction":"DIRECTION",
+    "orientation":"ORIENTATION",
+    "in":"INT",
+    "out":"INT"
+  },
+  "defaults":{
+    "spacing":3,
+    "channelWidth":10,
+    "direction":"DIRECTION",
+    "orientation":"ORIENTATION",
+    "in":1,
+    "out":2
+  },
+  "designRules":{
+    "componentSpacing":100,
+    "routingSpacing":100
+  }
+}

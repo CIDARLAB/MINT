@@ -1,0 +1,25 @@
+{
+  "name":"TDroplet",
+  "mint":"DROPLET GENERATOR T",
+  "type":"COMPOSITE",
+  "xspan":"100",
+  "yspan":"100",
+  "params":{
+    "radius":"INT",
+    "oilChannelWidth":"INT",
+    "waterChannelWidth":"INT",
+    "orientation":"ORIENTATION",
+    "direction":"DIRECTION"
+  },
+  "defaults":{
+    "radius":10,
+    "oilChannelWidth":10,
+    "waterChannelWidth":5,
+    "orientation":"V",
+    "direction":"DOWN"
+  },
+  "designRules":{
+    "componentSpacing":100,
+    "routingSpacing":100
+  }
+}

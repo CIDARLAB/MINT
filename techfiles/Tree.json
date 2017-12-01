@@ -1,27 +1,40 @@
 {
-  "name":"Tree",
-  "mint":"TREE",
-  "type":"SCALING",
-  "xspan":"100",
-  "yspan":"100",
-  "params":{
-    "spacing":"INT",
-    "channelWidth":"INT",
-    "direction":"DIRECTION",
-    "orientation":"ORIENTATION",
-    "in":"INT",
-    "out":"INT"
-  },
-  "defaults":{
-    "spacing":3,
-    "channelWidth":10,
-    "direction":"DIRECTION",
-    "orientation":"ORIENTATION",
-    "in":1,
-    "out":2
-  },
-  "designRules":{
-    "componentSpacing":100,
-    "routingSpacing":100
-  }
+    "name": "Tree",
+    "mint": "TREE",
+    "type": "SCALING",
+    "xspan": "((in+out)-1)*spacing + (in+out)*channelWidth",
+    "yspan": "log2((in+out)) * (stageLength+channelWidth)",
+    "params": {
+        "spacing": "INT",
+        "channelWidth": "INT",
+        "stageLength": "INT",
+        "in": "INT",
+        "out": "INT"
+    },
+    "defaults": {
+        "spacing": 3,
+        "channelWidth": 10,
+        "stageLength": 4000,
+        "in": 1,
+        "out": 2
+    },
+    "designRules": {
+        "componentSpacing": 100,
+        "routingSpacing": 100
+    },
+    "terminals": [{
+            "x": "(((in+out)-1)*spacing + (in+out)*channelWidth)/2",
+            "y": "0",
+            "start": "1",
+            "end": "1",
+            "layer": "FLOW"
+        },
+        {
+            "x": "(channelWidth/2) + (i-2)*(spacing+channelWidth)",
+            "y": "log2((in+out)) * (stageLength+channelWidth)",
+            "start": "2",
+            "end": "in+out",
+            "layer": "FLOW"
+        }
+    ]
 }

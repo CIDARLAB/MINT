@@ -3,7 +3,7 @@
     "mint": "TREE",
     "type": "SCALING",
     "xspan": "((in+out)-1)*spacing + (in+out)*flowChannelWidth",
-    "yspan": "(log2((in+out))+1) * (stageLength+flowChannelWidth)",
+    "yspan": "(log2((out))+1) * (stageLength+flowChannelWidth)",
     "params": {
         "spacing": "INT",
         "flowChannelWidth": "INT",
@@ -32,7 +32,7 @@
         },
         {
             "x": "(flowChannelWidth/2) + (i-2)*(spacing+flowChannelWidth)",
-            "y": "(log2((in+out))+1) * (stageLength+flowChannelWidth)",
+            "y": "(log2((out))+1) * (stageLength+flowChannelWidth)",
             "start": "2",
             "label": "i",
             "end": "in+out",

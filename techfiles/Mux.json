@@ -3,7 +3,7 @@
     "mint": "MUX",
     "type": "SCALING",
     "xspan": "((in+out)-1)*spacing + (in+out)*flowChannelWidth",
-    "yspan": "(log2((in+out))+1) * ((3*valveSpacing + 2*valveLength)+flowChannelWidth)",
+    "yspan": "(log2((out))+1) * ((3*valveSpacing + 2*valveLength)+flowChannelWidth)",
     "params": {
         "spacing": "INT",
         "flowChannelWidth": "INT",
@@ -35,8 +35,9 @@
         },
         {
             "x": "(flowChannelWidth/2) + (i-2)*(spacing+flowChannelWidth)",
-            "y": "log2((in+out)) * ((3*valveSpacing + 2*valveLength)+flowChannelWidth)",
+            "y": "(log2((out))+1) * ((3*valveSpacing + 2*valveLength)+flowChannelWidth)",
             "start": "2",
+            "label": "i",
             "end": "in+out",
             "layer": "FLOW"
         },
@@ -45,7 +46,7 @@
             "y": "(i+1) * (3*valveSpacing + 2*valveLength) + 2*valveSpacing + valveLength",
             "start": "0",
             "label": "(in+out+1) + 2*i + 1",
-            "end": "log2(N)-1",
+            "end": "log2(out)-1",
             "layer": "CONTROL"
         },
         {
@@ -53,7 +54,7 @@
             "y": "(i+1) * (3*valveSpacing + 2*valveLength) + valveSpacing",
             "start": "0",
             "label": "(in+out+1) + 2*i",
-            "end": "log2(N)-1",
+            "end": "log2(out)-1",
             "layer": "CONTROL"
         }
     ]

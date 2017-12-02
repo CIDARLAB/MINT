@@ -2,18 +2,18 @@
     "name": "Tree",
     "mint": "TREE",
     "type": "SCALING",
-    "xspan": "((in+out)-1)*spacing + (in+out)*channelWidth",
-    "yspan": "log2((in+out)) * (stageLength+channelWidth)",
+    "xspan": "((in+out)-1)*spacing + (in+out)*flowChannelWidth",
+    "yspan": "(log2((in+out))+1) * (stageLength+flowChannelWidth)",
     "params": {
         "spacing": "INT",
-        "channelWidth": "INT",
+        "flowChannelWidth": "INT",
         "stageLength": "INT",
         "in": "INT",
         "out": "INT"
     },
     "defaults": {
-        "spacing": 3,
-        "channelWidth": 10,
+        "spacing": 4000,
+        "flowChannelWidth": 10,
         "stageLength": 4000,
         "in": 1,
         "out": 2
@@ -23,16 +23,18 @@
         "routingSpacing": 100
     },
     "terminals": [{
-            "x": "(((in+out)-1)*spacing + (in+out)*channelWidth)/2",
+            "x": "(((in+out)-1)*spacing + (in+out)*flowChannelWidth)/2",
             "y": "0",
             "start": "1",
+            "label": "i",
             "end": "1",
             "layer": "FLOW"
         },
         {
-            "x": "(channelWidth/2) + (i-2)*(spacing+channelWidth)",
-            "y": "log2((in+out)) * (stageLength+channelWidth)",
+            "x": "(flowChannelWidth/2) + (i-2)*(spacing+flowChannelWidth)",
+            "y": "(log2((in+out))+1) * (stageLength+flowChannelWidth)",
             "start": "2",
+            "label": "i",
             "end": "in+out",
             "layer": "FLOW"
         }

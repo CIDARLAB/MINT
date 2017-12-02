@@ -1,30 +1,60 @@
 {
-  "name":"Mux",
-  "mint":"MUX",
-  "type":"SCALING",
-  "xspan":"100",
-  "yspan":"100",
-  "params":{
-    "spacing":"INT",
-    "flowChannelWidth":"INT",
-    "controlChannelWidth":"INT",
-    "direction":"DIRECTION",
-    "orientation":"ORIENTATION",
-    "in":"INT",
-    "out":"INT"
-  },
-  "defaults":{
-    "spacing":"INT",
-    "flowChannelWidth":"10",
-    "controlChannelWidth":"5",
-    "direction":"DOWN",
-    "orientation":"V",
-    "in":1,
-    "out":2
-  },
-  "designRules":{
-    "componentSpacing":100,
-    "routingSpacing":100
-  }
-
+    "name": "Mux",
+    "mint": "MUX",
+    "type": "SCALING",
+    "xspan": "((in+out)-1)*spacing + (in+out)*flowChannelWidth",
+    "yspan": "(log2((in+out))+1) * ((3*valveSpacing + 2*valveLength)+flowChannelWidth)",
+    "params": {
+        "spacing": "INT",
+        "flowChannelWidth": "INT",
+        "controlChannelWidth": "INT",
+        "valveLength": "INT",
+        "in": "INT",
+        "out": "INT"
+    },
+    "defaults": {
+        "spacing": 4000,
+        "flowChannelWidth": 10,
+        "controlChannelWidth": 5,
+        "valveLength": 200,
+        "in": 1,
+        "out": 2
+    },
+    "designRules": {
+        "componentSpacing": 100,
+        "routingSpacing": 100,
+        "valveSpacing": 100
+    },
+    "terminals": [{
+            "x": "(((in+out)-1)*spacing + (in+out)*flowChannelWidth)/2",
+            "y": "0",
+            "start": "1",
+            "label": "i",
+            "end": "1",
+            "layer": "FLOW"
+        },
+        {
+            "x": "(flowChannelWidth/2) + (i-2)*(spacing+flowChannelWidth)",
+            "y": "log2((in+out)) * ((3*valveSpacing + 2*valveLength)+flowChannelWidth)",
+            "start": "2",
+            "end": "in+out",
+            "layer": "FLOW"
+        },
+        {
+            "x": "0",
+            "y": "(i+1) * (3*valveSpacing + 2*valveLength) + 2*valveSpacing + valveLength",
+            "start": "0",
+            "label": "(in+out+1) + 2*i + 1",
+            "end": "log2(N)-1",
+            "layer": "CONTROL"
+        },
+        {
+            "x": "(((in+out)-1)*spacing + (in+out)*flowChannelWidth)",
+            "y": "(i+1) * (3*valveSpacing + 2*valveLength) + valveSpacing",
+            "start": "0",
+            "label": "(in+out+1) + 2*i",
+            "end": "log2(N)-1",
+            "layer": "CONTROL"
+        }
+    ]
 }

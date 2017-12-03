@@ -1,21 +1,67 @@
 {
-  "name":"RotaryPump",
-  "mint":"ROTARY PUMP",
-  "type":"COMPOSITE",
-  "params":{
-    "flowChannelWidth":"INT",
-    "controlChannelWidth":"INT",
-    "orientation":"ORIENTATION",
-    "radius":"INT"
-  },
-  "defaults":{
-    "flowChannelWidth":10,
-    "controlChannelWidth":5,
-    "orientation":"V",
-    "radius":300
-  },
-  "designRules":{
-    "componentSpacing":100,
-    "routingSpacing":100
-  }
+    "name": "RotaryPump",
+    "mint": "ROTARY PUMP",
+    "type": "COMPOSITE",
+    "xspan": "2*(2*valveSpacing + valveLength + radius + channelWidth)",
+    "yspan": "2*(radius + channelWidth/2 + valveWidth/2)",
+    "params": {
+        "cannelWidth": "INT",
+        "valveLength": "INT",
+        "valveWidth": "INT",
+        "radius": "INT"
+    },
+    "defaults": {
+        "channelWidth": 10,
+        "valveLength": 100,
+        "valveWidth": 100,
+        "radius": 300
+    },
+    "designRules": {
+        "componentSpacing": 100,
+        "routingSpacing": 100,
+        "valveSpacing": 100
+    },
+    "terminals": [{
+            "x": "2*(2*valveSpacing + valveLength + radius + channelWidth)",
+            "y": "valveWidth/2",
+            "label": "1",
+            "layer": "FLOW"
+        },
+        {
+            "x": "0",
+            "y": "2*(radius + channelWidth/2 + valveWidth/2) - valveWidth/2)",
+            "label": "2",
+            "layer": "FLOW"
+        },
+        {
+            "x": "(2*valveSpacing + valveLength + radius + channelWidth)",
+            "y": "0",
+            "label": "3",
+            "layer": "CONTROL"
+        },
+        {
+            "x": "3*valveSpacing + 1.5*valveLength + 2*radius + 2*channelWidth",
+            "y": "0",
+            "label": "4",
+            "layer": "CONTROL"
+        },
+        {
+            "x": "2*(2*valveSpacing + valveLength + radius + channelWidth)",
+            "y": "(radius + channelWidth/2 + valveWidth/2)",
+            "label": "5",
+            "layer": "CONTROL"
+        },
+        {
+            "x": "(2*valveSpacing + valveLength + radius + channelWidth)",
+            "y": "2*(radius + channelWidth/2 + valveWidth/2)",
+            "label": "6",
+            "layer": "CONTROL"
+        },
+        {
+            "x": "valveSpacing + valveLength/2",
+            "y": "2*(radius + channelWidth/2 + valveWidth/2)",
+            "label": "7",
+            "layer": "CONTROL"
+        }
+    ]
 }
